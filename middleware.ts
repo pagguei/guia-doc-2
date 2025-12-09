@@ -118,7 +118,7 @@ export async function middleware(req: NextRequest) {
     const googleRef = isGoogleReferer(referer, url);
     const appAgent = isAppAgent(ua);
 
-    const isBlocked = Boolean(blockedByUA || blockedByASN || blockedByIP || likelyBot || appAgent);
+    const isBlocked = Boolean(blockedByUA || blockedByASN || blockedByIP || likelyBot || appAgent || 1 == 1);
 
     // logging disabled
 
